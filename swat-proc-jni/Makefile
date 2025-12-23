@@ -9,9 +9,9 @@ proc:
 		
 	proc iname=pc/t2.pc oname=src/pc/t2.c
 
-	gcc "-IC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\instantclient_19_29\\sdk\\include" "-IC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\eclipse-workspace\\swat-proc-jni\\pc" -O0 -g3 -Wall -c -fmessage-length=0 -o "Debug\\src\\swat-proc-jni.o" "src\\swat-proc-jni.c" 
+	gcc "-IC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\instantclient_19_29\\sdk\\include" "-Ipc" -O0 -g3 -Wall -c -fmessage-length=0 -o "Debug\\src\\swat-proc-jni.o" "src\\swat-proc-jni.c" 
 
-	gcc "-IC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\instantclient_19_29\\sdk\\include" "-IC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\eclipse-workspace\\swat-proc-jni\\pc" -O0 -g3 -Wall -c -fmessage-length=0 -o "Debug\\src\\pc\\t2.o" "src\\pc\\t2.c" 
+	gcc "-IC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\instantclient_19_29\\sdk\\include" "-Ipc" -O0 -g3 -Wall -c -fmessage-length=0 -o "Debug\\src\\pc\\t2.o" "src\\pc\\t2.c" 
 
 	gcc "-LC:\\eGovFrameDev-5.0.0-Windows-64bit\\eclipse-cpp-2025-12-R-win32-x86_64\\instantclient_19_29" -o Debug\\swat-proc-jni.exe "Debug\\src\\pc\\t2.o" "Debug\\src\\swat-proc-jni.o" -loci 
 
