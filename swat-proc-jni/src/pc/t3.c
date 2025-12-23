@@ -65,11 +65,11 @@ struct sqlcxp
 static const struct sqlcxp sqlfpn =
 {
     8,
-    "pc/t2.pc"
+    "pc/t3.pc"
 };
 
 
-static unsigned int sqlctx = 18187;
+static unsigned int sqlctx = 18195;
 
 
 static struct sqlexd {
@@ -135,11 +135,11 @@ typedef struct { unsigned short len; unsigned char arr[1]; } varchar;
 /* cud (compilation unit data) array */
 static const short sqlcud0[] =
 {13,4130,1,0,0,
-5,0,0,1,210,0,3,75,0,0,0,0,0,1,0,
-20,0,0,2,0,0,32,159,0,0,0,0,0,1,0,
-35,0,0,0,0,0,27,182,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
-66,0,0,4,202,0,4,184,0,0,3,0,0,1,0,2,97,0,0,2,97,0,0,2,97,0,0,
-93,0,0,5,0,0,30,215,0,0,0,0,0,1,0,
+5,0,0,1,210,0,3,76,0,0,0,0,0,1,0,
+20,0,0,2,0,0,32,160,0,0,0,0,0,1,0,
+35,0,0,0,0,0,27,183,0,0,4,4,0,1,0,1,97,0,0,1,10,0,0,1,10,0,0,1,10,0,0,
+66,0,0,4,202,0,4,185,0,0,3,0,0,1,0,2,97,0,0,2,97,0,0,2,97,0,0,
+93,0,0,5,0,0,30,217,0,0,0,0,0,1,0,
 };
 
 
@@ -149,7 +149,8 @@ static const short sqlcud0[] =
 #include <string.h>
 
 //#ifdef __CDT_PARSER__
-#include <sqlca.h>
+//#include <sqlca.h>
+extern struct sqlca sqlca;
 //#endif
 
 //EXEC SQL INCLUDE sqlca;
@@ -183,7 +184,7 @@ static const short sqlcud0[] =
 //	return EXIT_SUCCESS;
 //}
 
-int t_insert() {
+int t3_insert() {
 
 //	printf("CODE_ID=%s\n", com_tc_cmmn_detail_code_vo->CODE_ID);
 //	printf("CODE=%s\n", com_tc_cmmn_detail_code_vo->CODE);
@@ -347,9 +348,9 @@ lues ('COM001','TEST02','test','test','Y',SYSDATE,'TEST',SYSDATE,'TEST')";
 	return 0;
 }
 
-int t_select(void) {
+int t3_select(void) {
 
-	puts("t_select");
+	puts("t3_select");
 
 	/* EXEC SQL BEGIN DECLARE SECTION; */ 
 
@@ -424,7 +425,8 @@ int t_select(void) {
 	FROM COMTCCMMNDETAILCODE
 	WHERE CODE_ID = 'COM001'
 //	AND CODE = 'REGC01'
-	AND CODE = 'REGC02'//	AND CODE = 'REGC03'
+//	AND CODE = 'REGC02'
+	AND CODE = 'REGC03'
 //	AND CODE = 'REGC04'
 //	AND CODE = 'REGC05'
 //	AND CODE = 'REGC06'
@@ -441,7 +443,7 @@ int t_select(void) {
  sqlstm.sqltdsp = &sqltds;
  sqlstm.stmt = "select CODE_ID ,CODE ,CODE_NM ,CODE_DC ,USE_AT ,FRST_REGIST_\
 PNTTM ,FRST_REGISTER_ID ,LAST_UPDT_PNTTM ,LAST_UPDUSR_ID into :b0,:b1,:b2  fro\
-m COMTCCMMNDETAILCODE where (CODE_ID='COM001' and CODE='REGC02')";
+m COMTCCMMNDETAILCODE where (CODE_ID='COM001' and CODE='REGC03')";
  sqlstm.iters = (unsigned int  )1;
  sqlstm.offset = (unsigned int  )66;
  sqlstm.selerr = (unsigned short)1;

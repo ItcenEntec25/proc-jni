@@ -4,7 +4,8 @@
 #include <string.h>
 
 //#ifdef __CDT_PARSER__
-#include <sqlca.h>
+//#include <sqlca.h>
+extern struct sqlca sqlca;
 //#endif
 
 //EXEC SQL INCLUDE sqlca;
@@ -38,7 +39,7 @@
 //	return EXIT_SUCCESS;
 //}
 
-int t_insert() {
+int t3_insert() {
 
 //	printf("CODE_ID=%s\n", com_tc_cmmn_detail_code_vo->CODE_ID);
 //	printf("CODE=%s\n", com_tc_cmmn_detail_code_vo->CODE);
@@ -163,9 +164,9 @@ int t_insert() {
 	return 0;
 }
 
-int t_select(void) {
+int t3_select(void) {
 
-	puts("t_select");
+	puts("t3_select");
 
 	EXEC SQL BEGIN DECLARE SECTION;
 
@@ -199,7 +200,8 @@ int t_select(void) {
 	FROM COMTCCMMNDETAILCODE
 	WHERE CODE_ID = 'COM001'
 //	AND CODE = 'REGC01'
-	AND CODE = 'REGC02'//	AND CODE = 'REGC03'
+//	AND CODE = 'REGC02'
+	AND CODE = 'REGC03'
 //	AND CODE = 'REGC04'
 //	AND CODE = 'REGC05'
 //	AND CODE = 'REGC06'
