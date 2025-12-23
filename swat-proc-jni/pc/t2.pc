@@ -1,0 +1,219 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <string.h>
+
+//#ifdef __CDT_PARSER__
+#include <sqlca.h>
+//#endif
+
+//EXEC SQL INCLUDE sqlca;
+
+//int t_insert(void);
+//
+//int t_select(void);
+
+//int main(void) {
+//
+//	puts("!!!Hello World!!! SWAT-");
+//
+//	EXEC SQL CONNECT: "com/com01@192.168.212.150:1521/ORCLPDB1";
+//
+////	if (sqlca.sqlcode != 0) {
+////		fprintf(stderr, "Error: ORA-%d %.*s\n", sqlca.sqlcode,
+////				(int) sqlca.sqlerrm.sqlerrml, sqlca.sqlerrm.sqlerrmc);
+////		return 1;
+////	}
+//
+//	printf("Connected successfully!\n");
+//
+////	int result = t_insert();
+////	printf("result=%d\n", result);
+//
+//	int result = t_select();
+//	printf("result=%d\n", result);
+//
+//	EXEC SQL COMMIT WORK RELEASE;
+//
+//	return EXIT_SUCCESS;
+//}
+
+int t_insert() {
+
+//	printf("CODE_ID=%s\n", com_tc_cmmn_detail_code_vo->CODE_ID);
+//	printf("CODE=%s\n", com_tc_cmmn_detail_code_vo->CODE);
+//	printf("CODE_NM=%s\n", com_tc_cmmn_detail_code_vo->CODE_NM);
+//	printf("CODE_DC=%s\n", com_tc_cmmn_detail_code_vo->CODE_DC);
+//	printf("USE_AT=%s\n", com_tc_cmmn_detail_code_vo->USE_AT);
+//	printf("FRST_REGISTER_ID=%s\n",
+//			com_tc_cmmn_detail_code_vo->FRST_REGISTER_ID);
+//	printf("LAST_UPDUSR_ID=%s\n", com_tc_cmmn_detail_code_vo->LAST_UPDUSR_ID);
+
+	EXEC SQL BEGIN DECLARE SECTION;
+
+	char uid[50];
+
+	char input_code_id[7];
+	char input_code[16];
+	char input_code_nm[61];
+	char input_code_dc[201];
+	char input_use_at[2];
+	char input_frst_register_id[21];
+	char input_last_updusr_id[21];
+
+	char full_errmsg[512];
+
+	EXEC SQL END DECLARE SECTION;
+
+//	strcpy(uid, com_tc_cmmn_detail_code_vo->CODE_ID);
+
+	/*
+	 printf("CODE_ID=%s\n", com_tc_cmmn_detail_code_vo->CODE_ID);
+	 printf("CODE_ID=%s\n", uid);
+	 */
+
+	EXEC SQL
+
+	INSERT INTO COMTCCMMNDETAILCODE
+	(
+			CODE_ID
+			, CODE
+			, CODE_NM
+			, CODE_DC
+			, USE_AT
+			, FRST_REGIST_PNTTM
+			, FRST_REGISTER_ID
+			, LAST_UPDT_PNTTM
+			, LAST_UPDUSR_ID
+	)
+//VALUES(
+//:com_tc_cmmn_detail_code_vo->CODE_ID
+//, :com_tc_cmmn_detail_code_vo->CODE
+//, :com_tc_cmmn_detail_code_vo->CODE_NM
+//, :com_tc_cmmn_detail_code_vo->CODE_DC
+//, :com_tc_cmmn_detail_code_vo->USE_AT
+//, SYSDATE
+//, :com_tc_cmmn_detail_code_vo->FRST_REGISTER_ID
+//, SYSDATE
+//, :com_tc_cmmn_detail_code_vo->LAST_UPDUSR_ID
+//VALUES(
+//:input_code_id
+//, :input_code
+//, :input_code_nm
+//, :input_code_dc
+//, :input_use_at
+//, 'Y'
+//, SYSDATE
+//, :input_frst_register_id
+//, SYSDATE
+//, :input_last_updusr_id
+	VALUES(
+			'COM001'
+//			:com_tc_cmmn_detail_code_vo->CODE_ID
+//:input_code_id
+
+			, 'TEST02'
+//			, :com_tc_cmmn_detail_code_vo->CODE
+
+			, 'test'
+//			, :com_tc_cmmn_detail_code_vo->CODE_NM
+
+			, 'test'
+//			, :com_tc_cmmn_detail_code_vo->CODE_DC
+
+			, 'Y'
+//			, :com_tc_cmmn_detail_code_vo->USE_AT
+
+			, SYSDATE
+
+			, 'TEST'
+//			, :com_tc_cmmn_detail_code_vo->FRST_REGISTER_ID
+
+			, SYSDATE
+
+			, 'TEST'
+//			, :com_tc_cmmn_detail_code_vo->LAST_UPDUSR_ID
+
+	);
+
+	/*
+	 printf("test 이백행 2025-12-16 Employee Name: %s\n", uid);
+	 printf("test 이백행 2025-12-16 Employee Name: %d\n", sqlca.sqlcode);
+	 */
+
+//	if (sqlca.sqlcode != 0) {
+//		printf("SQL ERROR: %ld\n", sqlca.sqlcode);
+//		printf("SQLERRM: %.700s\n", sqlca.sqlerrm.sqlerrmc);
+//	}
+	/*
+	 printf("CODE_ID=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->CODE_ID, strlen(com_tc_cmmn_detail_code_vo->CODE_ID));
+	 printf("CODE=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->CODE, strlen(com_tc_cmmn_detail_code_vo->CODE));
+	 printf("CODE_NM=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->CODE_NM, strlen(com_tc_cmmn_detail_code_vo->CODE_NM));
+	 printf("CODE_DC=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->CODE_DC, strlen(com_tc_cmmn_detail_code_vo->CODE_DC));
+	 printf("USE_AT=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->USE_AT, strlen(com_tc_cmmn_detail_code_vo->USE_AT));
+	 printf("FRST_REGISTER_ID=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->FRST_REGISTER_ID, strlen(com_tc_cmmn_detail_code_vo->FRST_REGISTER_ID));
+	 printf("LAST_UPDUSR_ID=[%s], len=%zu\n", com_tc_cmmn_detail_code_vo->LAST_UPDUSR_ID, strlen(com_tc_cmmn_detail_code_vo->LAST_UPDUSR_ID));
+	 */
+
+//	EXEC SQL COMMIT WORK RELEASE;
+	EXEC SQL ROLLBACK WORK RELEASE;
+//    EXEC SQL COMMIT;
+
+//	return sqlca.sqlcode;
+	return 0;
+}
+
+int t_select(void) {
+
+	puts("t_select");
+
+	EXEC SQL BEGIN DECLARE SECTION;
+
+	char CODE_ID[7];
+	char CODE[16];
+	char CODE_NM[61];
+	char CODE_DC[201];
+	char USE_AT[2];
+	char FRST_REGISTER_ID[21];
+	char LAST_UPDUSR_ID[21];
+
+	EXEC SQL END DECLARE SECTION;
+
+	EXEC SQL CONNECT: "com/com01@192.168.212.150:1521/ORCLPDB1";
+
+	EXEC SQL
+
+	SELECT
+	CODE_ID
+	, CODE
+	, CODE_NM
+
+	, CODE_DC, USE_AT, FRST_REGIST_PNTTM,
+	FRST_REGISTER_ID, LAST_UPDT_PNTTM, LAST_UPDUSR_ID
+
+	INTO
+	:CODE_ID
+	, :CODE
+	, :CODE_NM
+
+	FROM COMTCCMMNDETAILCODE
+	WHERE CODE_ID = 'COM001'
+//	AND CODE = 'REGC01'
+	AND CODE = 'REGC02'
+//	AND CODE = 'REGC03'
+//	AND CODE = 'REGC04'
+//	AND CODE = 'REGC05'
+//	AND CODE = 'REGC06'
+//	AND CODE = 'REGC07'
+//
+//	AND CODE = 'REGC08'
+	;
+
+	printf("CODE_ID=%s\n", CODE_ID);
+	printf("CODE=%s\n", CODE);
+	printf("CODE_NM=%s\n", CODE_NM);
+
+	EXEC SQL COMMIT WORK RELEASE;
+
+	return EXIT_FAILURE;
+}
